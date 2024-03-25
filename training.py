@@ -17,7 +17,7 @@ from sklearn.metrics import classification_report
 import time
 
 # 이미지 전처리 및 라벨 생성하는 소중한 함수
-def 전처리함수(image_data, json_data, preprocessing_folder='./pre/'):
+def preprocessing(image_data, json_data, preprocessing_folder='./pre/'):
     images = []  # 이미지 데이터 모셔두는 곳
     labels = []  # json 데이터 모셔두는 곳
     for i, json_path in enumerate(os.listdir(json_data), start=1):
@@ -47,7 +47,7 @@ image_data = './Dataset/test_data/image'  # 이미지 경로
 json_data = './Dataset/test_data/json/'  # json 경로
 preprocessing_folder = './pre/'
 
-전처리함수(image_data, json_data, preprocessing_folder)
+preprocessing(image_data, json_data, preprocessing_folder)
 
 # 이미지 데이터셋 생성
 train_ds = tf.keras.preprocessing.image_dataset_from_directory(
@@ -69,13 +69,13 @@ val_ds = tf.keras.preprocessing.image_dataset_from_directory(
 )
 
 # 이미지 데이터 전처리 함수
-def 전처리2함수(i, 정답):
+def Preprocessing2(i, score):
     i = tf.cast(i / 255.0, tf.float32)
-    return i, 정답
+    return i, score
 
 # 이미지 데이터 전처리
-train_ds = train_ds.map(전처리2함수)
-val_ds = val_ds.map(전처리2함수)
+train_ds = train_ds.map(Preprocessing2)
+val_ds = val_ds.map(Preprocessing2)
 
 # 모델 정의
 model = tf.keras.models.Sequential([

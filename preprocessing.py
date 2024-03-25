@@ -26,23 +26,19 @@ val_ds = tf.keras.preprocessing.image_dataset_from_directory(
 )
 
 
-
-
 """
 true_image = np.concatenate([X.numpy() for _, X in val_ds], axis=0)
 true_labels = np.concatenate([y.numpy() for _, y in val_ds], axis=0)
 print(true_image) """
 
 
-def 전처리2함수(i, 정답):
+def Preprocessing2(i, score):
     i = tf.cast(i/255.0, tf.float32)
-    return i, 정답
+    return i, score
 
 
-train_ds = train_ds.map(전처리2함수)
-val_ds = val_ds.map(전처리2함수)
-
-
+train_ds = train_ds.map(Preprocessing2)
+val_ds = val_ds.map(Preprocessing2)
 
 
 
