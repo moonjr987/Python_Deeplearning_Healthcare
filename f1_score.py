@@ -27,11 +27,11 @@ test_ds = tf.keras.preprocessing.image_dataset_from_directory(
     seed=123
 )
 
-def 전처리함수(i, 정답):
+def preprocessing(i, score):
     i = tf.cast(i/255.0, tf.float32)
-    return i, 정답
+    return i, score
 
-test_ds = test_ds.map(전처리함수)
+test_ds = test_ds.map(preprocessing)
 
 test_images = []
 true_labels = []
@@ -44,17 +44,17 @@ test_images = np.concatenate(test_images, axis=0)
 true_labels = np.concatenate(true_labels, axis=0)
 
 # 모델 로드 및 컴파일
-불러온모델 = tf.keras.models.load_model('./model_folder/test_model6')
-불러온모델.summary()
+loaded_model = tf.keras.models.load_model('./model_folder/test_model6')
+loaded_model.summary()
 
-불러온모델.compile(
+loaded_model.compile(
     loss="binary_crossentropy",
     optimizer=tf.keras.optimizers.Adam(lr=0.00001),
     metrics=["accuracy"]
 )
 
 # 모델 예측
-predictions = 불러온모델.predict(test_images)
+predictions = loaded_model.predict(test_images)
 
 # F1 스코어 계산
 f1 = f1_score(true_labels, predictions.round())

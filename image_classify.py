@@ -13,7 +13,7 @@ from PIL import Image
 
 
 # 이미지 전처리 및 라벨 생성하는 소중한 함수
-def 전처리함수(image_data, json_data):
+def preprocessing(image_data, json_data):
     images = []  # 이미지 데이터 모셔두는 곳
     labels = []  # json 데이터 모셔두는 곳
     for i, json_path in enumerate(os.listdir(json_data), start=1):
@@ -54,4 +54,4 @@ def 전처리함수(image_data, json_data):
 image_data = './Dataset/test_data/image'  # 이미지 경로
 json_data = './Dataset/test_data/json/'  # json 경로
 
-전처리함수(image_data, json_data)
+preprocessing(image_data, json_data)
