@@ -1,5 +1,5 @@
 <h2>2023 헬스케어 AI 경진대회 코드</h2>
-<br>
+
 
 <h5>사용된 기술: Tensorflow, Keras</h5>
 <h5>모델: VGG16</h5>
