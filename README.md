@@ -1,6 +1,6 @@
 <h2>2023 헬스케어 AI 경진대회 코드</h2>
 
-
+<h5>사용한 언어: Python
 <h5>사용된 기술: Tensorflow, Keras</h5>
 <h5>모델: VGG16</h5>
 <h5>팀에서 맡은 부분: preprocessing.py(전처리)</h5>
