@@ -12,10 +12,10 @@ from sklearn.utils import shuffle
 from PIL import Image
 
 
-# 이미지 전처리 및 라벨 생성하는 소중한 함수
+# 이미지 전처리 및 라벨 생성 함수
 def preprocessing(image_data, json_data):
-    images = []  # 이미지 데이터 모셔두는 곳
-    labels = []  # json 데이터 모셔두는 곳
+    images = []  # 이미지 데이터 저장공간
+    labels = []  # json 데이터 저장공간
     for i, json_path in enumerate(os.listdir(json_data), start=1):
         if json_path.endswith('.json'):
             with open(os.path.join(json_data, json_path), 'r') as json_file:
